@@ -7,7 +7,7 @@
 
 ![pinpad](https://ar5iv.labs.arxiv.org/html/2206.04114/assets/x7.png)
 
-[Gymnasium](https://github.com/Farama-Foundation/Gymnasium) re-implementation of visual pin pad benchmark.
+[Gymnasium](https://github.com/Farama-Foundation/Gymnasium) re-implementation of [visual pin pad benchmark](https://github.com/danijar/director/blob/main/embodied/envs/pinpad.py).
 
 ## Usage
 
