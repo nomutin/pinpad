@@ -1,7 +1,8 @@
 # Visual Pin Pad
 
-![python](https://img.shields.io/badge/python-3.8%20|%203.9%20|%203.10-blue)
+![python](https://img.shields.io/badge/python-3.8-blue)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![ci](https://github.com/nomutin/pinpad/actions/workflows/ci.yaml/badge.svg)](https://github.com/nomutin/pinpad/actions/workflows/ci.yaml)
 
 ![pinpad](https://ar5iv.labs.arxiv.org/html/2206.04114/assets/x7.png)
 
