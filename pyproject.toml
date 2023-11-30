@@ -1,0 +1,78 @@
+[project]
+name = "pinpad"
+version = "1.0.0"
+description = "Visual Pin Pad Benchmark"
+authors = [
+    { name = "nomutin", email = "nomura0508@icloud.com" }
+]
+dependencies = [
+    "numpy>=1.24.4",
+    "gymnasium>=0.29.1",
+    "nptyping>=2.5.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "isort>=5.12.0",
+    "ruff>=0.1.6",
+    "mypy>=1.7.1",
+    "black>=23.11.0",
+    "pytest-cov>=4.1.0",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.black]
+line-length = 79
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::UserWarning",
+    "ignore::DeprecationWarning",
+    'ignore:distutils Version classes are deprecated.:DeprecationWarning',
+]
+
+[tool.ruff]
+select = ["ALL"]
+ignore = ["D203", "D212", "ANN101", "ANN102"]
+fixable = ["ALL"]
+unfixable = []
+exclude = [".git", ".mypy_cache", ".ruff_cache", ".venv",]
+line-length = 79
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+target-version = "py38"
+
+[tool.mypy]
+python_version = "3.8"
+check_untyped_defs = true
+disallow_any_decorated = false
+disallow_any_generics = false
+disallow_any_unimported = false
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+ignore_errors = false
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+strict_optional = true
+warn_redundant_casts = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true
+disallow_untyped_calls = true
+warn_return_any = true
