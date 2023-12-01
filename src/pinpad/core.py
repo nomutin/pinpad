@@ -147,7 +147,6 @@ class PinPad(Env):
             self.player = options["player"]
         info = self._get_info()
         self.sequence.clear()
-        info["player"] = self.player
         return self.render(), info
 
     def render(self) -> OBSERVATION:  # type: ignore[override]
