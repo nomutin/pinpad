@@ -135,7 +135,7 @@ class PinPad(Env):
         """
         if seed is not None:
             self._np_random = np.random.default_rng(seed)
-        self.player = self._np_random.choice(self.spawns)
+        self.player = tuple(self._np_random.choice(self.spawns))
         if options is not None and "player" in options:
             self.player = options["player"]
         self.sequence.clear()
