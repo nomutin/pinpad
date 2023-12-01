@@ -131,15 +131,23 @@ class PinPad(Env):
         seed : int, optional
             seed for random number generator
         options : dict[str, Any], optional
-            Explicitly specify the next spawn location with the "player" key
+            Explicitly specify the next spawn location with the "player" key.
+
+        Returns
+        -------
+        observation : Observation
+            the initial observation of the space.
+        info : INFO
+            contains NEW player position and PREVIOUS sequence
         """
         if seed is not None:
             self._np_random = np.random.default_rng(seed)
         self.player = tuple(self._np_random.choice(self.spawns))
         if options is not None and "player" in options:
             self.player = options["player"]
-        self.sequence.clear()
         info = self._get_info()
+        self.sequence.clear()
+        info["player"] = self.player
         return self.render(), info
 
     def render(self) -> OBSERVATION:  # type: ignore[override]
