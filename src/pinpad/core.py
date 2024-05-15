@@ -16,7 +16,7 @@ from typing import Any
 import numpy as np
 from gymnasium import Env, spaces
 
-from .types import (
+from pinpad.custom_types import (
     ACTION,
     BLACK,
     COLORS,
@@ -33,7 +33,7 @@ from .types import (
 __all__ = ["PinPad"]
 
 
-class PinPad(Env):
+class PinPad(Env[ACTION, OBSERVATION]):
     """
     Visual Pin Pad benchmark environment.
 
