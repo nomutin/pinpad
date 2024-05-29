@@ -34,7 +34,7 @@ from pinpad.custom_types import (
 __all__ = ["PinPad"]
 
 
-class PinPad(Env[ACTION, OBSERVATION]):
+class PinPad(Env[OBSERVATION, ACTION]):
     """
     Visual Pin Pad benchmark environment.
 
@@ -47,7 +47,7 @@ class PinPad(Env[ACTION, OBSERVATION]):
         - Renders the environments to help visualize what the agent see.
     """
 
-    action_space = spaces.Discrete(5)
+    action_space: spaces.Space = spaces.Discrete(5)
     observation_space = spaces.Box(0, 255, shape=(3,), dtype=np.uint8)
     render_mode = "rgb_array"
     _np_random: Generator = default_rng()
@@ -99,7 +99,7 @@ class PinPad(Env[ACTION, OBSERVATION]):
             contains player position and sequence
         """
         reward = 0.0
-        move = [(0, 0), (0, 1), (0, -1), (1, 0), (-1, 0)][action]  # type: ignore[index]
+        move = [(0, 0), (0, 1), (0, -1), (1, 0), (-1, 0)][action]
         x = np.clip(self.player[0] + move[0], 0, 15)
         y = np.clip(self.player[1] + move[1], 0, 13)
         tile = self.layout[x][y]

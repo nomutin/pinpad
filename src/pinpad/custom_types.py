@@ -3,10 +3,10 @@
 from typing import Any, Dict, Literal
 
 import numpy as np
-import numpy.typing as npt
+from numpy.typing import NDArray
 
-ACTION = npt.ArrayLike
-OBSERVATION = npt.ArrayLike
+ACTION = NDArray[np.int_]
+OBSERVATION = NDArray[np.int_]
 REWARD = float
 TERMINATED = bool
 TRUNCATED = bool
