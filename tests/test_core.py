@@ -1,3 +1,4 @@
+# Copyright 2022 Danijar Hafner.
 """`core.py`のテスト."""
 
 from typing import get_args
@@ -5,8 +6,7 @@ from typing import get_args
 import numpy as np
 import pytest
 
-from pinpad.core import PinPad
-from pinpad.custom_types import LAYOUTS
+from pinpad.core import LAYOUTS, PinPad
 
 
 @pytest.mark.parametrize("layout", get_args(LAYOUTS))
