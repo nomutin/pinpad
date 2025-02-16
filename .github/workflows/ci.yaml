@@ -10,17 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up rye
-        uses: zztkm/setup-rye@use-uv
-        with:
-          use-uv: 'true'
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
       - name: Install dependencies
-        run: rye sync --no-lock
+        run: uv sync
       - name: Run lint
-        run: rye lint
+        run: uv run ruff check . && uv run mypy --strict .
       - name: Run test
         run: |
-          rye run pytest -ra --cov=src --cov-report=term --cov-report=xml
+          uv run pytest -ra --cov=src --cov-report=term --cov-report=xml
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
